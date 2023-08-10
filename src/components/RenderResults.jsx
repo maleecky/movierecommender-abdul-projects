@@ -20,7 +20,7 @@ export default function RenderResults({ recommendation }) {
     const fetchMovieInfo = async () => {
       try {
         const response = await fetch(
-          `http://www.omdbapi.com/?t=${selectedMovie.title}&apikey=${apiKey}`
+          `https://www.omdbapi.com/?t=${selectedMovie.title}&apikey=${apiKey}`
         );
         const data = await response.json();
         const videoResponse = await fetch(
