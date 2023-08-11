@@ -125,7 +125,7 @@ export default function RenderResults({ recommendation }) {
                 ⭐
                 <span className="rating"> {selectedMovie?.vote_average} </span>{" "}
                 <span className="metascore-container">
-                  {movieInfo?.Metascore}
+                  {movieInfo?.Metascore ?? "N/A"}
                 </span>{" "}
                 Metascore
               </li>
