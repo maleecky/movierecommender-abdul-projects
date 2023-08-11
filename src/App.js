@@ -21,7 +21,7 @@ function App() {
           {start ? (
             <SurveyQuestionsForm />
           ) : (
-            <WelcomeSection renderSurvey={renderSurvey} start={start} />
+            <WelcomeSection renderSurvey={renderSurvey} />
           )}
         </div>
       </section>

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-function WelcomeSection({ renderSurvey, start }) {
+function WelcomeSection({ renderSurvey }) {
   return (
     <div className="welcome-contents--container">
       <div className="welcome-note">

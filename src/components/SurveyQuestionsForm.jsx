@@ -64,10 +64,43 @@ function SurveyQuestionsForm() {
       if (vote_average < answer["question5"]) {
         meetsCriteria = false;
       }
+
       return meetsCriteria;
     });
 
-    setrecommendation(filtered);
+    const filteredBasedOnYearPublished = filtered.filter((movie) => {
+      let meetsCriteria = true;
+      const { release_date } = movie;
+      const currentYear = new Date().getFullYear();
+      const movieYearReleased = new Date(release_date).getFullYear();
+
+      function validateonTimeinterval(timeInterval) {
+        let yearPublished = currentYear - timeInterval;
+        if (yearPublished < movieYearReleased) {
+          return true;
+        }
+      }
+      switch (answer["question4"]) {
+        case "Published in the last 3 years":
+          meetsCriteria = validateonTimeinterval(3);
+          break;
+        case "Published in the last 5 years":
+          meetsCriteria = validateonTimeinterval(5);
+          break;
+        case "Published in the last 10 years":
+          meetsCriteria = validateonTimeinterval(10);
+          break;
+        case "Published in the last 20 years":
+          meetsCriteria = validateonTimeinterval(20);
+          break;
+        default:
+          meetsCriteria = true;
+      }
+
+      return meetsCriteria;
+    });
+
+    setrecommendation(filteredBasedOnYearPublished);
     setisDone(true);
   }
 

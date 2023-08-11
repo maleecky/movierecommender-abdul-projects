@@ -42,11 +42,11 @@ export default function RenderResults({ recommendation }) {
     };
     fetchMovieInfo();
   }, [recommendation, selectedMovie]);
-  console.log(movieInfo);
+
   useEffect(() => {
     const id = setTimeout(() => {
       setisloading(false);
-    }, 4000);
+    }, 5000);
 
     return () => {
       clearTimeout(id);
@@ -98,8 +98,8 @@ export default function RenderResults({ recommendation }) {
           <iframe
             width={560}
             height={315}
-            src={`https://www.youtube.com/embed/${trailerKey.key}?autoplay=1`}
-            title={selectedMovie.title}
+            src={`https://www.youtube.com/embed/${trailerKey?.key}?autoplay=1`}
+            title={selectedMovie?.title}
             allowFullScreen
           ></iframe>
         </div>
@@ -107,37 +107,42 @@ export default function RenderResults({ recommendation }) {
       <div className="movie-wrapper">
         <div className="img-wrapper">
           <img
-            src={`https://image.tmdb.org/t/p/w400${selectedMovie.poster_path}`}
-            alt={selectedMovie.title}
+            src={`https://image.tmdb.org/t/p/w400${selectedMovie?.poster_path}`}
+            alt={selectedMovie?.title}
           />
         </div>
         <div className="description-wrapper">
           <div className="heading-wrapper">
             <div className="heading-text" style={{ marginBottom: "6px" }}>
-              {selectedMovie.title}
+              {selectedMovie?.title}
             </div>
             <ul>
               <li style={{ fontSize: "14px", marginBottom: "6px" }}>
-                {movieInfo.Rated} | {movieInfo.Runtime} |{" "}
-                {selectedMovie.genre_ids.join(", ")}
+                {movieInfo?.Rated} | {movieInfo?.Runtime} |{" "}
+                {selectedMovie?.genre_ids.join(", ")}
               </li>
               <li style={{ fontSize: "14px", marginBottom: "25px" }}>
-                ⭐<span className="rating"> {selectedMovie.vote_average} </span>{" "}
+                ⭐
+                <span className="rating"> {selectedMovie?.vote_average} </span>{" "}
                 <span className="metascore-container">
-                  {movieInfo.Metascore}
+                  {movieInfo?.Metascore}
                 </span>{" "}
                 Metascore
               </li>
-              <li>Release Date: {movieInfo.Released}</li>
-              <li className="overview-wrapper">{movieInfo.Plot}</li>
+              <li>
+                <span className="unique-txt">Release Date:</span>{" "}
+                {selectedMovie?.release_date}
+              </li>
+              <li className="overview-wrapper">{movieInfo?.Plot}</li>
               <li className="actors-wrapper">
                 <span className="unique-txt">Directors</span>:{" "}
-                {movieInfo.Director} |
+                {movieInfo?.Director} |
                 <span className="unique-txt"> Stars: </span>
-                {movieInfo.Actors}
+                {movieInfo?.Actors}
               </li>
               <li>
-                <span className="unique-txt">Votes</span>: {movieInfo.imdbVotes}
+                <span className="unique-txt">Votes</span>:{" "}
+                {movieInfo?.imdbVotes}
               </li>
             </ul>
           </div>
@@ -148,7 +153,7 @@ export default function RenderResults({ recommendation }) {
           <div className="primary-btn">
             <a
               href={`https://www.google.com/search?q=${encodeURIComponent(
-                selectedMovie.title
+                selectedMovie?.title
               )}`}
               target="_blank"
               rel="noopenner noreferrer"
@@ -165,7 +170,12 @@ export default function RenderResults({ recommendation }) {
         <button
           className="next-btn"
           onClick={() => {
+            setisloading(true);
             setIndex(getRandomIndex());
+
+            setTimeout(() => {
+              setisloading(false);
+            }, 2000);
           }}
         >
           Next
