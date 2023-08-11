@@ -133,7 +133,7 @@ export default function RenderResults({ recommendation }) {
                 <span className="unique-txt">Release Date:</span>{" "}
                 {selectedMovie?.release_date}
               </li>
-              <li className="overview-wrapper">{movieInfo?.Plot}</li>
+              <li className="overview-wrapper">{selectedMovie?.overview}</li>
               <li className="actors-wrapper">
                 <span className="unique-txt">Directors</span>:{" "}
                 {movieInfo?.Director} |
