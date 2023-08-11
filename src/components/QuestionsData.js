@@ -23,6 +23,17 @@ export const Questions = [
   },
   {
     id: `question${id++}`,
+    label: "How old would you like your movie to be?",
+    options: [
+      "Doesn't matter",
+      "Published in the last 3 years",
+      "Published in the last 5 years",
+      "Published in the last 10 years",
+      "Published in the last 20 years",
+    ],
+  },
+  {
+    id: `question${id++}`,
     label:
       "On a scale of 0 to 10, how would you rate the movies you prefer to watch?",
     options: [],

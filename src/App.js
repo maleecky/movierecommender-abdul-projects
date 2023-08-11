@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import WelcomeSection from "./components/WelcomeSection";
 import FooterComponent from "./components/FooterComponent";
 import SurveyQuestionsForm from "./components/SurveyQuestionsForm";
-import { useData } from "./components/MoviesApiCall";
+import { useGenreData } from "./components/GenresApiCall";
 
 function App() {
   const [start, isstart] = useState(false);
-  const { movies, movieGenres } = useData();
+  const { movieGenres } = useGenreData();
 
   function renderSurvey() {
-    if (movies && movieGenres) isstart(true);
+    if (movieGenres) isstart(true);
   }
   return (
     <div className="main-wrapper">

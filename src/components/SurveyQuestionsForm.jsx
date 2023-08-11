@@ -61,7 +61,7 @@ function SurveyQuestionsForm() {
       if (!genre_ids.includes(...answer["question3"])) {
         meetsCriteria = false;
       }
-      if (vote_average < answer["question4"]) {
+      if (vote_average < answer["question5"]) {
         meetsCriteria = false;
       }
       return meetsCriteria;

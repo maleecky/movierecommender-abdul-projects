@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { QuestionsContext } from "./SurveyQuestionsForm";
-import { useData } from "./MoviesApiCall";
+import { useGenreData } from "./GenresApiCall";
 
 function SurveyQuestions({
   currentQuestion,
@@ -10,7 +10,7 @@ function SurveyQuestions({
 }) {
   const Questions = useContext(QuestionsContext);
   const { label, options, id, input } = Questions[currentQuestion];
-  const { movieGenres } = useData();
+  const { movieGenres } = useGenreData();
 
   return (
     <div className="question-container">

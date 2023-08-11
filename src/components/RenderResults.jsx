@@ -42,7 +42,7 @@ export default function RenderResults({ recommendation }) {
     };
     fetchMovieInfo();
   }, [recommendation, selectedMovie]);
-
+  console.log(movieInfo);
   useEffect(() => {
     const id = setTimeout(() => {
       setisloading(false);
@@ -99,7 +99,6 @@ export default function RenderResults({ recommendation }) {
             width={560}
             height={315}
             src={`https://www.youtube.com/embed/${trailerKey.key}?autoplay=1`}
-            frameBorder={0}
             title={selectedMovie.title}
             allowFullScreen
           ></iframe>
@@ -129,6 +128,7 @@ export default function RenderResults({ recommendation }) {
                 </span>{" "}
                 Metascore
               </li>
+              <li>Release Date: {movieInfo.Released}</li>
               <li className="overview-wrapper">{movieInfo.Plot}</li>
               <li className="actors-wrapper">
                 <span className="unique-txt">Directors</span>:{" "}

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 export const useData = () => {
-  const [movieGenres, setmovieGenres] = useState([]);
   const [movies, setMovies] = useState(null);
 
   useEffect(() => {
@@ -37,7 +36,6 @@ export const useData = () => {
         .then((data) => {
           const genreMap = {};
           data.genres.forEach((genre) => {
-            setmovieGenres((prevGenres) => [...prevGenres, genre.name]);
             genreMap[genre.id] = genre.name;
           });
           const updatedMovieObjects = moviesObjects.map((movie) => {
@@ -56,5 +54,5 @@ export const useData = () => {
     });
   }, []);
 
-  return { movies, movieGenres };
+  return { movies };
 };
