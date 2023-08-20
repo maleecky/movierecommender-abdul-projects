@@ -353,6 +353,18 @@ section {
   background: var(--hover-clr);
   border: 1px solid transparent;
 }
+.plain-btn .disabled-next-btn {
+  padding: 5px 22px;
+  margin-top: 20px;
+}
+.plain-btn .info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.plain-btn .info-container svg {
+  margin-left: 5px;
+}
 
 .link-btns {
   display: flex;

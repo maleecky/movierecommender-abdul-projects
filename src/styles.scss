@@ -341,6 +341,20 @@ section {
       border: 1px solid transparent;
     }
   }
+
+  .disabled-next-btn {
+    padding: 5px 22px;
+    margin-top: 20px;
+  }
+
+  .info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      margin-left: 5px;
+    }
+  }
 }
 .link-btns {
   display: flex;

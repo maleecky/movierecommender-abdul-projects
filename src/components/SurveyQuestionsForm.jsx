@@ -100,7 +100,20 @@ function SurveyQuestionsForm() {
       return meetsCriteria;
     });
 
-    setrecommendation(filteredBasedOnYearPublished);
+    const uniqueMap = new Map();
+
+    const updatedRecommendation = filteredBasedOnYearPublished.reduce(
+      (acc, movie) => {
+        if (!uniqueMap.has(movie.title)) {
+          uniqueMap.set(movie.title, true);
+          acc.push(movie);
+        }
+        return acc;
+      },
+      []
+    );
+
+    setrecommendation(updatedRecommendation);
     setisDone(true);
   }
 
